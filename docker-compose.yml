@@ -1,0 +1,16 @@
+version: '3.6'
+
+services:
+  db:
+    # image: mariadb
+    image: postgres:alpine
+    ports:
+      - "${PG_PORT}:5432"
+    environment:
+      - PG_ROOT_PASSWORD
+      - PG_DATABASE
+      - PG_USER
+      - PG_PASSWORD
+      - TZ=${PG_TZ}
+    expose:
+      - ${PG_PORT}
