@@ -3,7 +3,7 @@ version: '3.6'
 services:
   db:
     image: postgres:alpine
-    restart: always
+#    restart: always
     ports:
       - "${PG_PORT}:5432"
     environment:
@@ -16,4 +16,7 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
     expose:
       - ${PG_PORT}
-      
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
